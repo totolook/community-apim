@@ -124,3 +124,4 @@ jobs:
           body: "Release WSO2 IS ${{env.TAG}}"
           artifacts: "./**/*.zip"
           artifactContentType: "Application/zip"
+          tag: v4.2.0 

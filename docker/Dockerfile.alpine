@@ -87,11 +87,11 @@ RUN \
     && echo ${MOTD} > "${ENV}"
 
 # copy init script to user home
-COPY --chown=wso2carbon:wso2 docker-entrypoint.sh ${USER_HOME}/
+COPY --chown=wso2carbon:wso2 docker-entrypoint.sh .
     
 # add the WSO2 product distribution to user's home directory
 RUN \
-    unzip -d ${USER_HOME} ${WSO2_SERVER}.zip \
+    unzip -d ${USER_HOME} ${WSO2_DIST}.zip \
     && chown wso2carbon:wso2 -R ${WSO2_SERVER_HOME} \
     && mkdir ${USER_HOME}/wso2-tmp \
     && bash -c 'mkdir -p ${USER_HOME}/solr/{indexed-data,database}' \
