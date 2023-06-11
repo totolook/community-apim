@@ -85,7 +85,7 @@ ARG WSO2_SERVER_VERSION=4.2.0
 ARG WSO2_SERVER_REPOSITORY=product-apim
 ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
 ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
-ARG WSO2_SERVER_DIST_URL=<APIM_DIST_URL>
+ARG WSO2_DIST=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
 # build argument for MOTD
 ARG MOTD="\n\
 Welcome to WSO2 Totolook  Docker resources.\n\
@@ -105,9 +105,9 @@ COPY --chown=wso2carbon:wso2 docker-entrypoint.sh ${USER_HOME}/
 # install required packages
 
 # add the WSO2 product distribution to user's home directory
+COPY --chown=wso2carbon:wso2 ${WSO2_DIST}.zip ${USER_HOME}/
 RUN \
-    wget -O ${WSO2_SERVER}.zip "${WSO2_SERVER_DIST_URL}" \
-    && unzip -d ${USER_HOME} ${WSO2_SERVER}.zip \
+    unzip -d ${USER_HOME} ${WSO2_SERVER}.zip \
     && chown wso2carbon:wso2 -R ${WSO2_SERVER_HOME} \
     && mkdir ${USER_HOME}/wso2-tmp \
     && bash -c 'mkdir -p ${USER_HOME}/solr/{indexed-data,database}' \
