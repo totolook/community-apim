@@ -4,13 +4,13 @@
     <mirrors>
         <mirror>
             <id>release-http-unblocker</id>
-            <mirrorOf>wso2-nexus</mirrorOf>
+            <mirrorOf>wso2.releases</mirrorOf>
             <name></name>
             <url>http://maven.wso2.org/nexus/content/repositories/releases</url>
         </mirror>
         <mirror>
             <id>snapshot-http-unblocker</id>
-            <mirrorOf>snapshots</mirrorOf>
+            <mirrorOf>wso2.snapshots</mirrorOf>
             <name></name>
             <url>http://maven.wso2.org/nexus/content/repositories/snapshots</url>
         </mirror>
