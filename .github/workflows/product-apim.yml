@@ -2,10 +2,10 @@ name: product-apim-builder
 
 on:
  push:
-  # tags:
-  #     - '*'
-  branches:
-    - main
+  tags:
+      - 'v*'
+  # branches:
+  #   - main
 
 permissions:
   contents: write
@@ -13,7 +13,7 @@ permissions:
 
 env:
   MAVEN_OPTS: -Dhttp.keepAlive=false -Dmaven.wagon.http.pool=false -Dmaven.wagon.http.retryHandler.class=standard -Dmaven.wagon.http.retryHandler.count=3
-  TAG: v4.2.0
+  TAG: ${{ github.ref_name }}
 
 jobs:
   build:
@@ -124,4 +124,4 @@ jobs:
           body: "Release WSO2 IS ${{env.TAG}}"
           artifacts: "./**/*.zip"
           artifactContentType: "Application/zip"
-          tag: v4.2.0 
+          # tag: v4.2.0 
