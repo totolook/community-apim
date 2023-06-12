@@ -120,8 +120,8 @@ jobs:
           name: wso2am-${{env.TAG}}
       - uses: ncipollo/release-action@v1
         with:
-          name: "Release WSO2 IS ${{env.TAG}}"
-          body: "Release WSO2 IS ${{env.TAG}}"
+          name: "Release WSO2 AM ${{env.TAG}}"
+          body: "Release WSO2 AM ${{env.TAG}}"
           artifacts: "./**/*.zip"
           artifactContentType: "Application/zip"
           # tag: v4.2.0 
