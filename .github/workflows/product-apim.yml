@@ -59,7 +59,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
             name: wso2am-${{env.TAG}}
-            path: wso2am/modules/distribution/**/target/wso2am-${{ env.WSO2_VERSION }}.zip
+            path: wso2am/modules/distribution/product/target/wso2am-${{ env.WSO2_VERSION }}.zip
      
   
   build-docker:
