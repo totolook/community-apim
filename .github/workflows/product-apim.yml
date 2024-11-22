@@ -46,10 +46,10 @@ jobs:
 
       - name: Product-apim build  without Integration Tests
         run: |
-          mvn clean install -f wso2am --settings ./.mvn/local-settings.xml --batch-mode -Dmaven.test.skip=true | tee mvn-build.log
+          mvn clean install -f wso2am  -P skip-test --settings ./.mvn/local-settings.xml --batch-mode -Dmaven.test.skip=true | tee mvn-build.log
       - name: get version from maven
         run: |
-          echo "WSO2_VERSION=$(mvn help:evaluate -f wso2am -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+          echo "WSO2_VERSION=$(mvn help:evaluate  -P skip-test -f wso2am -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
       - name: Save Maven cache
         uses: skjolber/maven-cache-github-action@v1
         continue-on-error: true
